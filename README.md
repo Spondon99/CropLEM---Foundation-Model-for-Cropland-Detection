@@ -230,8 +230,9 @@ A high-level (and somewhat unpolished) system architecture diagram is provided b
 
 <p align="center">
   <img src="CropLEM - System Architecture.png" width="700">
-  Fig.1. CropLEM High-Level System Architecture
 </p>
+
+<p align="center">Fig.1. CropLEM High-Level System Architecture</p>
 
 
 
