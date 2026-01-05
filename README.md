@@ -2,7 +2,6 @@
 
 **Self-Supervised Multi-Sensor Foundation Model for Global Agricultural Monitoring**
 
-<br>
 
 ## Table of Contents
 
@@ -30,8 +29,6 @@
 
 
 
-<br>
-
 ## Overview
 
 CropLEM is a foundation model for global cropland detection that addresses critical challenges in agricultural remote sensing,
@@ -46,7 +43,6 @@ CropLEM is a foundation model for global cropland detection that addresses criti
 
 CropLEM learns generalizable feature representations from unlabeled multi-sensor satellite data using Masked Autoencoders (MAE), then adapts to downstream cropland detection tasks with minimal supervision. This approach mirrors recent successes in NLP with Large Language Models (LLMs), but specifically designed for multi-modal Earth observation data, with the vision of creating a component for Large Earth Models (LEMs).
 
-<br>
 
 **Why would we use foundation models for agriculture and Earth observation?**
 
@@ -203,11 +199,11 @@ SEN12MS is the ideal dataset for developing multi-sensor cropland foundation mod
 - Rich labels: Land cover annotations following IGBP classification scheme with 17 classes
 
 The dataset high-level statistics are provided below,
-| **    Modality   ** | **    Channels   ** | **    Value   Range   ** | **    Description   **       |   |
-|---------------------|---------------------|--------------------------|------------------------------|---|
-|     Sentinel-1      |     2               |                          |     VV,   VH polarization    |   |
-|     Sentinel-2      |     13              |     0   to 10,000        |     B01   to B12, B8A        |   |
-|     Land   Cover    |     1               |     0   to 16            |     IGBP   classification    |   |
+|       Modality      |       Channels      |       Value   Range      |       Description            |
+|---------------------|---------------------|--------------------------|------------------------------|
+|     Sentinel-1      |     2               |                          |     VV,   VH polarization    |
+|     Sentinel-2      |     13              |     0   to 10,000        |     B01   to B12, B8A        |
+|     Land   Cover    |     1               |     0   to 16            |     IGBP   classification    |
 
 
 The dataset can be downloaded [here](https://mediatum.ub.tum.de/1474000)
@@ -232,6 +228,9 @@ More information on the dataset available in this [GitHub repo](https://github.c
 
 A high-level (and somewhat unpolished) system architecture diagram is provided below. As I continue to develop the project, I will update the pieces of this diagram as required, and possibly have it more polished and detailed.
 
+<p align="center">
+  <img src="CropLEM - System Architecture.png" width="700">
+</p>
 
 
 Fig.1. CropLEM High-Level System Architecture
