@@ -2,7 +2,7 @@
 
 **Self-Supervised Multi-Sensor Foundation Model for Global Agricultural Monitoring**
 
-
+(Note: As I continue to work on this project, I'll update the README file as appropriate)
 ## Table of Contents
 
 - Overview
@@ -138,7 +138,7 @@ This approach combines Sentinel-1 SAR and Sentinel-2 optical satellite imagery,
 
 - 75% masking ratio forces learning of spatial and spectral context
 
-- Pretraining on around 10,000 patches (approximately 30% of SEN12MS summer data due to computational constraints)
+- Pretraining on more than 45,000 satellite images (.tif files)
 
 - Transferable embeddings for downstream classification or detection tasks
 
