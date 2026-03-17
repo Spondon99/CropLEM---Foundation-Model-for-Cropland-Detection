@@ -184,7 +184,7 @@ The project consists of **3 Key Phases**, broken down into **7 major steps**:
 4. Embedding Extraction
      - Use trained MAE encoder to convert images to embeddings
      - These embeddings capture learned patterns
-     - Example: image(256x256x15) -> encoder -> embedding(768-dim vector)
+     - Example: image(256x256x15) -> encoder -> embedding(768-dim vector) 
 5. Downstream Classification for Cropland
      - Get a labeled cropland dataset (Kenya croptype classification dataset, or any other labeled dataset)
      - Train a classifier (embeddings -> classifier -> cropland detection)
@@ -195,7 +195,7 @@ The project consists of **3 Key Phases**, broken down into **7 major steps**:
      - Demonstrate the value of self-supervised learning
 
 **Phase 3: Advanced Component - Active Learning (Reinforcement Learning)**
-7. Contextual Bandit for Active Learning
+1. Contextual Bandit for Active Learning
      - Goal: Reduce labeling costs
      - Strategy: Intelligently select which images to label
      - Bandit learns which samples give more info
