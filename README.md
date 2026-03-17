@@ -1,7 +1,7 @@
 # CropLEM: Foundation Model for Cropland Detection
 
 **Self-Supervised Multi-Sensor Foundation Model for Global Agricultural Monitoring**
-
+---
 (Note: As I continue to work on this project, I'll update the README file as appropriate)
 ## Table of Contents
 
@@ -11,23 +11,13 @@
 
 - Key Features
 
-- Project Structure
+- Key Steps
 
 - Data
 
 - System Architecture
 
-- Installation
-
-- Quick Start
-
-- Results and Evaluation
-
-- Research Context
-
-- Future Plan
-
-
+---
 
 ## Overview
 
@@ -62,7 +52,7 @@ Foundation models solve these issues by,
 
 - Integrating complementary modalities or features such as temporal data from multiple seasons, combining SAR with optical sensor data, etc.
 
-
+---
 
 
 
@@ -109,7 +99,7 @@ Supervised learning approaches require,
 Foundation models that are pretrained on massive unlabeled data offer a paradigm shift, as self-supervised pretraining on petabytes of unlabeled data can be utilized. The generated embeddings of these models can be used with downstream classifiers later, which ensure that these models transfer globally with minimal labels required.
 
 
-
+---
 
 
 
@@ -172,13 +162,47 @@ Beyond accuracy metrics, the following evaluation criteria will be used,
 
 - Calibration analysis (confidence reliability)
 
+---
+
+## Key Steps
+
+The project consists of **3 Key Phases**, broken down into **7 major steps**:
+
+**Phase 1: Foundation Model Creation (Self-Supervised Learning)**
+1. Data download and exploration
+     - Download the SEN12MS dataset. This project uses only the 'summer' data for storage constraints. These will be the unlabeled satellite images used later for MAE pretraining.
+2. Data Preprocessing
+     - Create pipeline to prepare data
+     - Calculate normalization statistics
+     - Build PyTorch DataLoaders for Train and Validation data
+3. MAE Pretraining
+     - Train MAE on unlabeled SEN12MS summer data
+     - Model learns general satellite imagery patterns
+     - Output: Trained encoder. The encoder will act as our 'foundation model'
+  
+**Phase 2: Downstream Task (Transfer Learning)
+4. Embedding Extraction
+     - Use trained MAE encoder to convert images to embeddings
+     - These embeddings capture learned patterns
+     - Example: image(256x256x15) -> encoder -> embedding(768-dim vector)
+5. Downstream Classification for Cropland
+     - Get a labeled cropland dataset (Kenya croptype classification dataset, or any other labeled dataset)
+     - Train a classifier (embeddings -> classifier -> cropland detection)
+     - Compare 2 approaches: Classification *With* and *Without* MAE embeddings
+6. Evaluation
+     - Measure accuracy, F1-score, etc.
+     - Show that MAE pretraining improves performance
+     - Demonstrate the value of self-supervised learning
+
+**Phase 3: Advanced Component - Active Learning (Reinforcement Learning)**
+7. Contextual Bandit for Active Learning
+     - Goal: Reduce labeling costs
+     - Strategy: Intelligently select which images to label
+     - Bandit learns which samples give more info
+     - Progressive improvement with minimal labels
 
 
-## Project Structure
-
-Under construction….
-
-
+---
 
 
 
@@ -215,7 +239,7 @@ More information on the dataset available in this [GitHub repo](https://github.c
 
 
 
-
+---
 
 
 
@@ -237,23 +261,8 @@ A high-level (and somewhat unpolished) system architecture diagram is provided b
 
 
 
-
-
-## Installation
-
-Under construction….
-
-
-
-## Quick Start
-
-Under construction….
-
-
-
-## Results and Evaluation
-
-Under construction….
+---
+(More items to be added....)
 
 
 
