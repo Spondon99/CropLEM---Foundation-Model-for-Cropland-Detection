@@ -181,15 +181,15 @@ The project consists of **3 Key Phases**, broken down into **7 major steps**:
      - Output: Trained encoder. The encoder will act as our 'foundation model'
   
 **Phase 2: Downstream Task (Transfer Learning)**
-4. Embedding Extraction
+1. Embedding Extraction
      - Use trained MAE encoder to convert images to embeddings
      - These embeddings capture learned patterns
      - Example: image(256x256x15) -> encoder -> embedding(768-dim vector) 
-5. Downstream Classification for Cropland
+2. Downstream Classification for Cropland
      - Get a labeled cropland dataset (Kenya croptype classification dataset, or any other labeled dataset)
      - Train a classifier (embeddings -> classifier -> cropland detection)
      - Compare 2 approaches: Classification *With* and *Without* MAE embeddings
-6. Evaluation
+3. Evaluation
      - Measure accuracy, F1-score, etc.
      - Show that MAE pretraining improves performance
      - Demonstrate the value of self-supervised learning
