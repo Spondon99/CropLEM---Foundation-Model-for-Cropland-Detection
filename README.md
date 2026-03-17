@@ -180,7 +180,7 @@ The project consists of **3 Key Phases**, broken down into **7 major steps**:
      - Model learns general satellite imagery patterns
      - Output: Trained encoder. The encoder will act as our 'foundation model'
   
-**Phase 2: Downstream Task (Transfer Learning)
+**Phase 2: Downstream Task (Transfer Learning)**
 4. Embedding Extraction
      - Use trained MAE encoder to convert images to embeddings
      - These embeddings capture learned patterns
