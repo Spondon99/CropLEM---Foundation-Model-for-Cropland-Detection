@@ -14,7 +14,7 @@ import numpy as np
 from pathlib import Path
 
 # Add parent directory to path to import preprocessing modules
-sys.path.append('E:/AgriML Projects/CropLEM/')
+sys.path.append('path_to_project/CropLEM/')
 
 # Import configuration
 import mae_config as config
@@ -34,7 +34,8 @@ from mae_utils import (
     count_parameters,
     AverageMeter,
     print_training_header,
-    print_epoch_summary
+    print_epoch_summary,
+    load_checkpoint
 )
 
 # Import preprocessing pipeline
@@ -327,6 +328,25 @@ def main():
     log_path = Path(config.LOGS_DIR) / "training_log.csv"
     logger = TrainingLogger(log_path)
     print(f"\nLogging to {log_path}")
+
+    # Resume from checkpoint if exists
+    start_epoch = 1
+    best_val_loss = float('inf')
+    resume_checkpoint = Path(config.CHECKPOINT_DIR) / "best_checkpoint.pth"
+
+    if resume_checkpoint.exists():
+        print(f"\n**Found checkpoint: {resume_checkpoint}")
+        user_input = input("Resume from checkpoint? (y/n): ")
+        if user_input.lower() == 'y':
+            epoch_loaded, loaded_loss = load_checkpoint(resume_checkpoint, model, optimizer)
+            start_epoch = epoch_loaded + 1
+            best_val_loss = loaded_loss
+            print(f"   Resuming from epoch {start_epoch}")
+            print(f"   Best val loss so far {best_val_loss:.6f}")
+        else:
+            print("   Starting fresh training")
+    else:
+        print("\n**No checkpoint found - starting fresh")
     
     # Training loop
     print("\n" + "-"*70)
@@ -335,9 +355,7 @@ def main():
     
     print_training_header()
     
-    best_val_loss = float('inf')
-    
-    for epoch in range(1, config.NUM_EPOCHS + 1):
+    for epoch in range(start_epoch, config.NUM_EPOCHS + 1):
         epoch_start_time = time.time()
         
         # Train
