@@ -82,7 +82,8 @@ def load_checkpoint(checkpoint_path, model, optimizer=None):
         epoch: epoch number from checkpoint
         loss: loss from checkpoint
     """
-    checkpoint = torch.load(checkpoint_path)
+    # 'weights_only=False' only for trusted checkpoint sources
+    checkpoint = torch.load(checkpoint_path, weights_only=False)
     
     model.load_state_dict(checkpoint['model_state_dict'])
     
